@@ -1,1 +1,3 @@
-OscaR util library
+# OscaR-Util
+
+OscaR utilitarian library
