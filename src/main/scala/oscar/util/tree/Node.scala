@@ -16,8 +16,12 @@ package oscar.util.tree
 
 import java.awt.Color
 
-class Node[T](val label: T, val sons: List[Node[T]], val edgeLabels: List[T], val col: Color= Color.white, val action: () => Unit = () => ()) {
-	override def toString = {
+class Node[T](val label: T,
+              val sons: List[Node[T]],
+              val edgeLabels: List[T],
+              val col: Color= Color.white,
+              val action: () => Unit = () => ()) {
+	override def toString: String = {
 	  label.toString + (sons match {
 	    case Nil => ""
 	    case e => e.mkString("(",",",")")

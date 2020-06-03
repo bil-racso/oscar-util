@@ -15,7 +15,7 @@
 
 package oscar.util
 
-import scala.collection.mutable.ArrayBuffer
+import scala.collection.mutable
 
 /**
  * A mutable IndexedSeq of Boolean which is able to sets all 
@@ -23,13 +23,12 @@ import scala.collection.mutable.ArrayBuffer
  * 
  * @author Renaud Hartert ren.hartert@gmail.com
  */
-class MagicArray(val len: Int) extends ArrayBuffer[Boolean](len) {
-   
-  private val arr: Array[Int] = Array.fill(size)(Int.MinValue)
-  
+class MagicArray(override val length: Int) extends mutable.IndexedSeq[Boolean] {
+
+  private val array: Array[Int] = Array.fill(length)(Int.MinValue)
   private var magic = Int.MinValue + 1
-  
-  /** 
+
+  /**
    *  Sets all the booleans to false in constant time.
    */
   def reset(): Unit = {
@@ -37,26 +36,24 @@ class MagicArray(val len: Int) extends ArrayBuffer[Boolean](len) {
     else {
       magic = Int.MinValue + 1
       var i = 0
-      while (i < size) {
-        arr(i) = Int.MinValue
+      while (i < length) {
+        array(i) = Int.MinValue
         i += 1
       }
     }
   }
-  
-  override val length: Int = size
-  
+
   override def update(i: Int, b: Boolean): Unit = {
-    if (b) arr(i) = magic
-    else arr(i) = magic - 1
+    if (b) array(i) = magic
+    else array(i) = magic - 1
   }
-  
-  override def apply(i: Int): Boolean = arr(i) == magic
-  
+
+  override def apply(i: Int): Boolean = array(i) == magic
+
   override def foreach[U](f: Boolean => U): Unit = {
     var i = 0
-    while (i < size) {
-      f(arr(i) == magic)
+    while (i < length) {
+      f(array(i) == magic)
       i += 1
     }
   }

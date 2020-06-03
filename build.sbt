@@ -1,8 +1,8 @@
-scalaVersion := "2.12.10"
+scalaVersion := "2.13.2"
 
 name := "oscar-util"
 organization := "oscarlib"
-version := "4.1.0"
+version := "5.0.0"
 
 scalacOptions ++= Seq(
   "-encoding", "UTF-8",
@@ -15,5 +15,5 @@ scalacOptions ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "org.scala-lang.modules" %% "scala-xml" % "1.2.0"
+  "org.scala-lang.modules" %% "scala-xml" % "1.3.0"
 )
