@@ -1,4 +1,4 @@
-scalaVersion := "2.12.11"
+scalaVersion := "2.13.2"
 
 name := "oscar-util"
 organization := "oscarlib"
@@ -12,8 +12,4 @@ scalacOptions ++= Seq(
   "-Xdisable-assertions",
   "-language:implicitConversions",
   "-language:postfixOps"
-)
-
-libraryDependencies ++= Seq(
-  "org.scala-lang.modules" %% "scala-xml" % "1.3.0"
 )

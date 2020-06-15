@@ -3,12 +3,12 @@
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 2.1 of the License, or
  * (at your option) any later version.
- *   
+ *
  * OscaR is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License  for more details.
- *   
+ *
  * You should have received a copy of the GNU Lesser General Public License along with OscaR.
  * If not, see http://www.gnu.org/licenses/lgpl-3.0.en.html
  ******************************************************************************/
@@ -102,32 +102,6 @@ class Tree(var record: Boolean = true) {
       s"child {node  [circle,draw,$style] ($i) {$i}  ${ childsAndPos.map{case(child,pos) => toTikz(child._2,child._4,pos)}.mkString(" ")}  edge from parent node[$align,draw=none] {$lab}  }"
     }
   }
-
-
-
-  
-  /*
-  def toXml() = {
-    <tree version="1.0">
-		  <root id="0"/>
-	  	  {branches.map{case(parent,id,name,value,action) => 
-	  	                   		<try id= {id.toString} parent = {parent.toString} name= {name} value = {value} />
-	  	                   }
-	  	  
-	  	  
-	  	  }
-	  	  {succ.map{i => 
-	  	              <succ id={i.toString} /> }
-	  	  }
-    </tree>
-  }
-
-  
-  def save(file: String) {
-    scala.xml.XML.save(file,toXml())
-  }*/
-  
-  
 }
 
 object Tree {
